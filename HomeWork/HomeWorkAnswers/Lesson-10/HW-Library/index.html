@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перелік книжок</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script id="template" type="text/template">
+        <section class="book">
+            <button onclick="edit({{id}})">Редагувати</button>
+            <button onclick="remove({{id}})">Видалити</button>
+            <h3>{{title}}</h3>
+            <p><strong>Author:</strong> {{author}}</p>
+            <p><strong>Year of publication:</strong> {{year}}</p>
+            <p><strong>Genre:</strong> {{genre}}</p>
+        </section>
+    </script>
+
+    <form id="booksForm">
+        <div><label for="">Назва</label><input type="text" id="titleInput" name="title" required></div>
+        <div><label for="">Автор</label><input type="text" id="authorInput" name="author"
+                pattern="^[A-Za-zА-Яа-яЁёЇїІіЄєҐґ',.\-\s]+$" minlength="2" required></div>
+        <div><label for="">Рік видання</label><input type="text" id="yearInput" name="year" pattern="[0-9]{4}"
+                maxlength="4" required>
+        </div>
+        <div><label for="">Жанр твору</label><input type="text" id="genreInput" name="genre"
+                pattern="^[А-Яа-яЁёЇїІіЄєҐґ']+$" required>
+        </div>
+        <button class="button" type="submit">Зберегти</button>
+    </form>
+
+    <section id="bookList" id="books" class="books"></section>
+
+    <script src="../../../../node_modules/mustache/mustache.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+
+</html>
+
+
+
+    
+<!-- 
+Додайте валідацію до форми з попереднього уроку яка додає та редагує книги.
+
+Виконайте наступні перевірки
+
+1. Поле "Назва книги" (title)
+Перевірка на порожнє значення: назва книги не повинна бути порожньою.
+Перевірка на дублікати: перевірити, чи вже є така книга в масиві books.
+
+2. Поле "Автор" (author)
+Перевірка на порожнє значення: ім'я автора не повинно бути порожнім.
+
+3. Поле "Рік видання" (year)
+Перевірка на порожнє значення: рік повинен бути вказаний.
+Перевірка на тип даних: це має бути число.
+Перевірка на діапазон значень: рік не може бути меншим за 1450 (перші друковані книги) і більшим за поточний рік.
+
+4. Поле "Жанр" (genre)
+Перевірка на порожнє значення: жанр не повинен бути порожнім. -->
