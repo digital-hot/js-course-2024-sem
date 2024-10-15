@@ -1,0 +1,19 @@
+ul,
+li {
+  list-style: none;
+}
+.book-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: blanchedalmond;
+}
+
+.book {
+  background-color: aqua;
+  border-radius: 10px;
+  width: 70%;
+  padding: 10px;
+}
