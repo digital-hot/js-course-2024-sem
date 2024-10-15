@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Tast1</title>
+</head>
+
+<body>
+   <script>
+      // rock, paper, scissors
+
+      function playRockPaperScissors() {
+         const choices = ["rock", "paper", "scissors"];
+         let userChoice;
+         let userScore = 0;
+         let robotScore = 0;
+
+         while (true) {
+            userChoice = prompt("Choose: rock, paper, scissors").toLowerCase();
+
+            if (userChoice === "exit") {
+               alert(`| **Final score** |\nYou: ${userScore}\nComputer: ${robotScore}`)
+               break;
+            }
+
+            if (userChoice === null) {
+               alert("Game canceled\n:(");
+               return;
+            }
+
+            if (!choices.includes(userChoice)) {
+               alert("Invalid choice! Please choose: rock, paper or scissors");
+               continue;
+            }
+
+            const randomInd = Math.floor(Math.random() * choices.length);
+            const robotChoice = choices[randomInd];
+
+            let result;
+
+            if (userChoice === robotChoice) {
+               result = "It's a draw";
+            }
+            else if (
+               (userChoice === "rock" && robotChoice === "paper") ||
+               (userChoice === "rock" && robotChoice === "scissors") ||
+               (userChoice === "scissors" && robotChoice === "paper")
+            ) {
+               result = "You won!";
+               userScore++;
+            }
+            else {
+               result = "Computer won!";
+               robotScore++;
+            }
+            alert(`Your choice: ${userChoice}\nComputer choice: ${robotChoice}\nResult: ${result}`);
+            alert(`Current score:\nYou: ${userScore}\nComputer: ${robotScore}`);
+         }
+      }
+      playRockPaperScissors()
+
+   </script>
+</body>
+
+</html>

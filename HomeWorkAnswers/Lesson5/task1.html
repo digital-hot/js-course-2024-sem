@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Tast2</title>
+</head>
+
+<body>
+   <button id="bmi">Body Mass Index</button>
+   <script>
+      function calculateBMI(weight, height) {
+         return (weight / (height * height)).toFixed(2);
+      }
+
+      function getBMICategory(bmi) {
+         if (bmi < 18.5) {
+            return "Indicates insufficient weight";
+         }
+         else if (bmi >= 18.5 && bmi < 24.9) {
+            return "equivalent to normal body weight";
+         }
+         else if (bmi >= 25 && bmi < 29.9) {
+            return "indicates the presence of excess weight";
+         }
+         else {
+            return "is a sign of obesity";
+         }
+
+      }
+      function findBMIOut() {
+         let weight = prompt("Enter your weight in kilo:");
+         let height = prompt("Enter your height in meters:");
+
+         weight = parseFloat(weight.replace(",", "."));
+         height = parseFloat(height.replace(",", "."));
+
+         if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+            alert("Please, enter the correct values for weight and height");
+            return;
+         }
+
+         const bmi = calculateBMI(weight, height);
+         const category = getBMICategory(bmi);
+
+         alert(`Your BMI: ${bmi}\nCategory: ${category}`)
+      }
+      document.getElementById("bmi").onclick = findBMIOut;
+   </script>
+</body>
+
+</html>

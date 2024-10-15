@@ -30,19 +30,36 @@
 
 <body>
    <script>
+      // Magic button
       const div = document.createElement('div');
       const button = document.createElement('button');
       button.textContent = "Click!"
-
       div.appendChild(button);
       document.body.appendChild(div);
 
-      button.addEventListener('click', function () {
-         const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fr', 'Sat']
-         const today = new Date().getDay();
+      function checkNumberParity(number) {
 
-         console.log(days[4]);
-      });
+         while (true) {
+            const input = prompt('Enter your number');
+            number = parseInt(input);
+
+            if (!isNaN(number)) {
+               break;
+            }
+            else {
+               alert(`${number} is not valid, please enter the correct number`)
+            }
+         }
+
+         if (number % 2 === 0) {
+            alert(`${number} is an even number`)
+         }
+         else {
+            alert(`${number} is an odd number`)
+         }
+      }
+      
+      button.addEventListener('click', checkNumberParity)
    </script>
 </body>
 
