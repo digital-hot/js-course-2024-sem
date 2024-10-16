@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let studentsDatabase = {
+        students: [],
+        add: function (name, surname, age, id, av_grade) {
+          this.students.push({
+            name: name,
+            surname: surname,
+            age: age,
+            id: id,
+            av_grade: av_grade,
+          });
+          alert(`Студент ${name} ${surname} доданий до бази.`);
+        },
+        remove: function (id) {
+          let studentIndex = this.students.findIndex((x) => x.id == id);
+          if (studentIndex !== -1) {
+            let student = this.students[studentIndex];
+            this.students.splice(studentIndex, 1);
+            alert(
+              `Студент ${student.name} ${student.surname} з ID ${id} був успішно видалений.`
+            );
+          } else {
+            alert(`Студента з ID ${id} не знайдено.`);
+          }
+        },
+        list: function () {
+          if (this.students.length === 0) {
+            alert("У базі немає студентів.");
+          } else {
+            let studentsInfo = this.students
+              .map((student) => {
+                return `Ім'я: ${student.name}, Прізвище: ${student.surname}, Вік: ${student.age}, ID: ${student.id}, Середній бал: ${student.av_grade}`;
+              })
+              .join("\n");
+            alert(`Список студентів:\n${studentsInfo}`);
+          }
+        },
+        searchById: function (id) {
+          let student = this.students.find((x) => x.id == id);
+          if (student) {
+            alert(
+              `Знайдений студент: Ім'я: ${student.name}, Прізвище: ${student.surname}, Вік: ${student.age}, ID: ${student.id}, Середній бал: ${student.av_grade}`
+            );
+          } else {
+            alert(`Студента з ID ${id} не знайдено.`);
+          }
+        },
+      };
+
+      let actions = {
+        1: function () {
+          let name = prompt("Введіть ім'я студента");
+          let surname = prompt("Введіть прізвище студента");
+          let age = +prompt("Введіть вік студента");
+          let id = +prompt("Введіть ID студента");
+          let av_grade = +prompt("Введіть середній бал студента");
+          studentsDatabase.add(name, surname, age, id, av_grade);
+        },
+
+        2: function () {
+          let id = +prompt("Введіть ID студента, якого хочете видалити");
+          studentsDatabase.remove(id);
+        },
+
+        3: function () {
+          let id = +prompt("Введіть ID студента, якого хочете знайти");
+          studentsDatabase.searchById(id);
+        },
+
+        4: function () {
+          studentsDatabase.list();
+        },
+
+        5: function () {
+          alert("Завершення роботи.");
+          return true;
+        },
+      };
+
+      let program = {
+        start() {
+          let isRunning = true;
+
+          while (isRunning) {
+            const option = prompt(
+              "Яку дію ви бажаєте виконати з базою данних студентів?\n" +
+                "1 - Додати нового студента\n" +
+                "2 - Видалити студента за ID\n" +
+                "3 - Знайти студента за ID\n" +
+                "4 - Вивести список студентів\n" +
+                "5 - Завершити роботу"
+            );
+
+            if (actions[option]) {
+              isRunning = actions[option]() !== true;
+            } else {
+              alert("Невірний вибір. Спробуйте ще раз.");
+            }
+          }
+        },
+      };
+
+      program.start();
+    </script>
+  </body>
+</html>
