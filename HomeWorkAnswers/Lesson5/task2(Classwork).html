@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task1</title>
+</head>
+
+<style>
+   ::selection {
+      background-color: #28a745;
+      color: #fff;
+   }
+
+   body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+   }
+
+   h1 {
+      margin-bottom: 20px;
+   }
+
+   p {
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+   }
+
+   input {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 20rem;
+      margin-right: 10px;
+   }
+
+   input:focus {
+      border-color: #007bff;
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 124, 255, .5);
+   }
+
+   button {
+      max-width: 15rem;
+      padding: 0.5rem 1rem;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 0 1rem;
+      transition: background-color 0.5s ease-in-out;
+      font-size: 1.2rem;
+   }
+
+   button:hover {
+      background-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 124, 255, .5);
+   }
+
+   div#output {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 20px;
+   }
+
+   .block {
+      display: block;
+   }
+</style>
+
+<body>
+   <script>
+      // DOM
+      const p = document.createElement('p');
+      p.textContent = 'Enter to convert';
+      const input = document.createElement('input');
+      input.id = 'temp';
+      input.classList.add('block');
+      p.append(input);
+      const div1 = document.createElement('div');
+      const button1 = document.createElement('button');
+      const button2 = document.createElement('button');
+      button1.id = 'btnToC';
+      button2.id = 'btnToF';
+      button1.textContent = 'To Celsius';
+      button2.textContent = 'To Fahrenheit';
+      div1.append(button1, button2);
+      const div2 = document.createElement('div');
+      const b = document.createElement('b');
+      b.id = 'output';
+      div2.appendChild(b);
+
+      document.body.append(p, div1, div2);
+
+      let getValue = () => Number(document.querySelector('#temp').value);
+      let toCelsius = temp => 5 / 9 * (temp - 32);
+      let toFahrenheit = temp => 9 / 5 * temp + 32;
+
+      let convert = converter => {
+         return () => {
+            let temp = getValue();
+            let value = converter(temp);
+            showResult(value);
+         }
+      }
+
+      document.querySelector('#btnToC').onclick = convert(toCelsius);
+      document.querySelector('#btnToF').onclick = convert(toFahrenheit);
+
+      function showResult(result) {
+         let output = document.querySelector('#output');
+         output.innerHTML = result;
+      }
+   </script>
+</body>
+
+</html>
