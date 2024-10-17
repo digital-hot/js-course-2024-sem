@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <!-- form#bookForm>(div>label+input#Input)*5 -->
+    <form action="" id="bookForm">
+      <div>
+        <label for="">Назва</label><input type="text" id="titleInput" />
+      </div>
+      <div>
+        <label for="">Автор</label><input type="text" id="authorInput" />
+      </div>
+      <div>
+        <label for="">Рік видання</label><input type="text" id="yearInput" />
+      </div>
+      <div><label for="">Жанр</label><input type="text" id="genreInput" /></div>
+      <button type="submit">Додати книгу до бібліотеки</button>
+    </form>
+    <ul class="book-list" id="book-list"></ul>
+
+    <script src="./js/model.js"></script>
+    <script src="./js/view.js"></script>
+    <script src="./js/controller.js"></script>
+  </body>
+</html>
