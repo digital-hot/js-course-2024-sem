@@ -63,6 +63,7 @@ group.add('Олег', 'Кравченко', 20, 3, 8);
 console.log('List of stusdents:')
 group.displayList();
 
-console.log('One student:')group.displayOne(2)
+console.log('One student:');
+group.displayOne(2)
 
 
