@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Tast2</title>
+</head>
+
+<body>
+   <script>
+      function getRandomNumber() {
+         return Math.floor(Math.random() * 10) + 1;
+      }
+
+      function getRandomOperator() {
+         const operators = ['+', '-', '*', '/'];
+         const randomIndex = Math.floor(Math.random() * operators.length);
+         return operators[randomIndex];
+      }
+
+      function generateMathQuestion() {
+         const num1 = getRandomNumber();
+         const num2 = getRandomNumber();
+         const operator = getRandomOperator();
+
+         let question;
+         let correctAnswer;
+
+         switch (operator) {
+            case '+':
+               correctAnswer = num1 + num2;
+               break;
+            case '-':
+               correctAnswer = num1 - num2;
+               break;
+            case '*':
+               correctAnswer = num1 * num2;
+               break;
+            case '/':
+               correctAnswer = (num1 / num2).toFixed(2);
+               break;
+         }
+
+         question = `${num1} ${operator} ${num2} = ?`;
+
+         return { question, correctAnswer };
+      }
+
+      function runQuiz() {
+         let score = 0;
+         const totalQuestions = 5;
+
+         for (let i = 0; i < totalQuestions; i++) {
+            const { question, correctAnswer } = generateMathQuestion();
+            const userAnswer = prompt(question);
+            if (parseFloat(userAnswer) === parseFloat(correctAnswer)) {
+               alert('Right!');
+               score++;
+            }
+            else {
+               alert(`Incorrect! Right answer: ${correctAnswer}`)
+            }
+         }
+         alert(`You got ${score} out of ${totalQuestions} right answers.`);
+      }
+
+      runQuiz();
+   </script>
+</body>
+
+</html>

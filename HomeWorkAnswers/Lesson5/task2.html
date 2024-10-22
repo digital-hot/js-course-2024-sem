@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task2</title>
+</head>
+
+<body>
+   <script>
+
+      function getCircleAreaAndPerimeter(radius) {
+         let perimeter = 2 * Math.PI * radius;
+         let area = Math.PI * Math.pow(radius, 2);
+         return { perimeter, area };
+      }
+
+      function rectangleAreaAndPerimeter(width, length) {
+         let perimeter = 2 * (width + length);
+         let area = width * length;
+         return { perimeter, area }
+      }
+
+      function getTriangleAreaAndPerimeter(a, b, c) {
+         let perimeter = a + b + c;
+         let p = perimeter / 2;
+         let area = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+         return { perimeter, area }
+      }
+
+      function calculator() {
+         let shape = prompt('Choose a figure: circle, rectangle or triangle').toLowerCase();
+
+         switch (shape) {
+            case 'circle':
+               let radius = parseFloat(prompt("Enter circle radius"));
+               if (isNaN(radius) || radius <= 0) {
+                  alert('Radius is not valid');
+                  return;
+               }
+               let circleResult = getCircleAreaAndPerimeter(radius);
+               alert(`Circle area: ${circleResult.area.toFixed(2)}, Perimeter: ${circleResult.perimeter.toFixed(2)}`)
+               break;
+            case 'rectangle':
+               let length = parseFloat(prompt("Enter rectangle length"));
+               let width = parseFloat(prompt("Enter rectangle width"));
+               if (isNaN(length) || isNaN(widht) || length <= 0 || width <= 0) {
+                  alert("Value of width or length is not valid")
+                  return;
+               }
+               let rectangleResult = rectangleAreaAndPerimeter(width, length);
+               alert(`Rectangle area: ${rectangleResult.area.toFixed(2)}, Rectangle perimeter: ${rectangleAreaAndPerimeter.perimeter.toFixed(2)}`);
+               break;
+            case 'triangle':
+               let a = parseFloat(prompt("Enter the width first side:"));
+               let b = parseFloat(prompt("Enter the width second side:"));
+               let c = parseFloat(prompt("Enter the width third side:"));
+               if (isNaN(a) || isNaN(b) || isNaN(c) || a <= 0 || b <= 0 || c <= 0) {
+                  alert("Your width is not valid");
+                  return;
+               }
+               let triangleResult = getTriangleAreaAndPerimeter(a, b, c);
+               alert(`Triangle area: ${triangleResult.area.toFixed(2)}, Triangle perimeter: ${triangleResult.perimeter.toFixed(2)}`);
+               break;
+            default:
+               alert("You're just dumb")
+         }
+      }
+      calculator();
+   </script>
+</body>
+
+</html>

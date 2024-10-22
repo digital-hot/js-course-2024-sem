@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>LeapYear</title>
+</head>
+
+<body>
+   <script>
+      function isLeapYear(year) {
+         if (year % 4 === 0) {
+            if (year % 100 === 0) {
+               if (year % 400 === 0) {
+                  return true;
+               }
+               return false;
+            }
+            return true;
+         }
+         return false;
+      }
+
+      function checkTheYear() {
+         let year;
+         while (true) {
+            year = prompt("Enter a year");
+
+            if (year === null || year.trim() === "") {
+               alert("Input cannot be empty.");
+               continue;
+            }
+
+            year = Number(year);
+
+            if (!isNaN(year)) {
+               break;
+            }
+            else {
+               alert("That's not a valid number");
+            }
+         }
+
+         if (isLeapYear(year)) {
+            alert(year + " is a leap year.");
+         }
+         else {
+            alert(year + " is not a leap year.")
+         }
+      }
+      checkTheYear();
+   </script>
+</body>
+
+</html>

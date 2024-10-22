@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task1</title>
+</head>
+
+<body>
+   <script>
+      const studentGrades = [];
+
+      function calculateAverage(grades) {
+         let sum = 0;
+
+         for (const value of grades) {
+            sum += value;
+         }
+
+         let average = Math.round(sum / grades.length);
+         return average;
+      }
+
+      let getHighestGrade = grades => {
+         return grades.length > 0 ? Math.max(...grades) : 0;
+      }
+      let getLowestGrade = grades => {
+         return grades.length > 0 ? Math.min(...grades) : 0;
+      }
+
+
+      let input = prompt("Enter your grades (e.g: 85,90,78):")
+      if (input) {
+         studentGrades.push(...input.split(/[\s,]+/).map(Number));
+      }
+
+      let average = calculateAverage(studentGrades).toFixed(2);
+      let highest = getHighestGrade(studentGrades);
+      let lowest = getLowestGrade(studentGrades);
+
+      alert(`Average: ${average}\nHighest: ${highest}\nLowest: ${lowest}`)
+
+   </script>
+</body>
+
+</html>

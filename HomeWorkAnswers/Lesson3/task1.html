@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      body {
+         height: 100vh;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         background-color: #333;
+         color: #fff;
+      }
+
+      button {
+         font-size: 1.5rem;
+         border: none;
+         background-color: #33a;
+         border-radius: 0.5rem;
+         padding: 0.5rem 1rem;
+         font-style: italic;
+         color: #fff;
+         cursor: pointer;
+      }
+   </style>
+</head>
+
+<body>
+   <script>
+      // Magic button
+      const div = document.createElement('div');
+      const button = document.createElement('button');
+      button.textContent = "Click!"
+      div.appendChild(button);
+      document.body.appendChild(div);
+
+      function checkNumberParity(number) {
+
+         while (true) {
+            const input = prompt('Enter your number');
+            number = parseInt(input);
+
+            if (!isNaN(number)) {
+               break;
+            }
+            else {
+               alert(`${number} is not valid, please enter the correct number`)
+            }
+         }
+
+         if (number % 2 === 0) {
+            alert(`${number} is an even number`)
+         }
+         else {
+            alert(`${number} is an odd number`)
+         }
+      }
+      
+      button.addEventListener('click', checkNumberParity)
+   </script>
+</body>
+
+</html>
