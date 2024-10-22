@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task2</title>
+</head>
+
+<body>
+   <script>
+      const shoppingList = [];
+
+      function addItemToShoppingList(item) {
+         shoppingList.push(item);
+         console.log(`${item} is added into the list`)
+      }
+
+      function removeItemFromShoppingList(item) {
+         shoppingList.pop(item);
+         console.log(`${item} is removed from the list`)
+      }
+      
+      function displayShoppingList(){
+         if(shoppingList.lenght === 0){
+            console.log("The Shopping list is empty.");
+         }
+         else{
+            console.log("The Shopping list:");
+            shoppingList.forEach(item => console.log(`- ${item}`));
+         }
+      }
+
+
+      while(true){
+         const input = prompt("Choose one: add product(d), remove product(r) or desplay list(l). Enter 'exit' to quit.")
+
+         if(input === null || input.toLowerCase() === 'exit'){
+            break;
+         }
+
+         switch(input.toLowerCase()){
+            case 'd':
+               const itemToAdd = prompt("So, enter the product to be added")
+               if(itemToAdd){
+                  addItemToShoppingList(itemToAdd);
+               }
+               break;
+            case 'r':
+               const itemToRemove = prompt("So, enter the product to be removed")
+               if(itemToRemove){
+                  removeItemFromShoppingList(itemToRemove);
+               }
+               break;
+            case 'l':
+               displayShoppingList();
+               break;
+            default:
+               console.log("Invalid action. Please, try again.");
+               break;
+         }
+      }
+
+   </script>
+</body>
+
+</html>
