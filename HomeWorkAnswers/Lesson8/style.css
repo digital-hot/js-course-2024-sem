@@ -2,14 +2,40 @@
     padding: 0;
     margin: 0;
 }
+body {
+    background-color: lightgoldenrodyellow;
+}
+/* form */
+#book-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40%;
+    padding: 2em;
+    margin: 0 auto;
+}
+.input-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+}
+input {
+    padding: 2px;
+    font-size: 1em;
+}
+button, label {
+    padding: 2px;
+    font-size: 1.5em;
+}
+
+/* book list */
 #book-list {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgb(250, 181, 153);
+    background-color: rgb(58, 55, 46);
     padding: 1em;
 }
 .book {

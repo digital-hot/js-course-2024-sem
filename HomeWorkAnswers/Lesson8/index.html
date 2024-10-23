@@ -7,21 +7,41 @@
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
     <script src="../node_modules/mustache/mustache.min.js" defer></script>
-    <script src="./js/model.js" defer></script>
-    <script src="./js/view.js" defer></script>
-    <script src="./js/controller.js" defer></script>
+    <script src="./js/controller.js" type="module"></script>
 </head>
 
 <body>
-    <template id="template">
+    <script id="template" type="x-tmpl-mustache">
         <article class="book">
+            <button class="edit-btn" data-id="{{id}}">Редагувати</button>
+            <button class="remove-btn" data-id="{{id}}">Видалити {{id}}</button>
             <h2>{{title}}</h2>
             <p>Автор: {{author}}</p>
             <p>Рік видання: {{year}}</p>
             <p>Жанр: {{genre}}</p>
         </article>
-    </template>
-
+    </script>
+    <form id="book-form">
+        <div class="input-box">
+            <label for="title-input">Назва книги</label>
+            <input id="title-input" type="text">
+        </div>
+        <div class="input-box">
+            <label for="author-input">Автор</label>
+            <input id="author-input" type="text">
+        </div>
+        <div class="input-box">
+            <label for="year-input">Рік видання</label>
+            <input id="year-input" type="text">
+        </div>
+        <div class="input-box">
+            <label for="genre-input">Жанр</label>
+            <input id="genre-input" type="text">
+        </div>
+        <button type="submit">
+            Зберегти
+        </button>
+    </form>
     <section id="book-list">
 
     </section>

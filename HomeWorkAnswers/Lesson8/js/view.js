@@ -1,4 +1,4 @@
-const bookList = {
+export const bookList = {
     render(books, element, template) {
         let html = "";
         books.forEach(book => {
