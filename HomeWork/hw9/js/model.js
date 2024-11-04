@@ -41,6 +41,7 @@ const library = {
     this.lastId++;
     book.id = this.lastId;
     this.books.push(book);
+    
   },
   remove(id) {
     let index = this.books.findIndex((x) => x.id == id);

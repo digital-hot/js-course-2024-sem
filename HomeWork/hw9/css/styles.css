@@ -26,3 +26,24 @@ li {
 #bookForm div {
   margin-bottom: 10px;
 }
+
+.form-group {
+  margin: 10px 4px;
+}
+
+.form-group label {
+  display: block;
+}
+
+.error {
+  color: red;
+  display: none;
+}
+
+.invalid {
+  border: red 1px solid;
+}
+
+.valid {
+  border: green 1px solid;
+}
