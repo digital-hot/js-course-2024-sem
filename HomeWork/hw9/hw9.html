@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <!-- form#bookForm>(div>label+input#Input)*5 -->
+    <form action="" id="bookForm">
+      <div class="form-group">
+        <label for="">Назва</label>
+        <input type="text" id="titleInput" name="titleInput" required/>
+        <span class="error" id="titleError">Вкажіть назву книги</span>
+      </div>
+      <div class="form-group">
+        <label for="">Автор</label
+        ><input type="text" id="authorInput" name="authorInput" required/>
+        <span class="error" id="authorError">Вкажіть автора книги</span>
+      </div>
+      <div class="form-group">
+        <label for="">Рік видання</label
+        ><input type="number" id="yearInput" name="yearInput" required/>
+        <span class="error" id="yearError">Вкажіть коректний рік видання</span>
+      </div>
+      <div class="form-group">
+        <label for="">Жанр</label
+        ><input type="text" id="genreInput" name="genreInput" required/>
+        <span class="error" id="genreError">Вкажіть жанр книги</span>
+      </div>
+      <button type="submit">Додати книгу до бібліотеки</button>
+    </form>
+    <ul class="book-list" id="book-list"></ul>
+
+    <script src="./js/model.js"></script>
+    <script src="./js/view.js"></script>
+    <script src="./js/controller.js"></script>
+    <script>
+     
+    </script>
+  </body>
+</html>
