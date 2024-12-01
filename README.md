@@ -48,3 +48,4 @@ Fork – це копія репозиторію, яка дозволяє вам 
 [11. Асинхронний JavaScript та робота з сервером](https://www.youtube.com/watch?v=cvR1EQ1R0EQ) <br />
 [12. Публікація веб застосунку. Використання GitHub Pages та Microsoft Azure](https://www.youtube.com/watch?v=VCDVBnIhS9s)
 
+[2. Як почати писати на JavaScript](https://www.youtube.com/watch?v=Rp3aT2bEE24&ab_channel=ITVDN)
