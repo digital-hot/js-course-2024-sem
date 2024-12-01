@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arrayGrades = [];
+
+      for (let i = 0; i < 5; i++) {
+        arrayGrades.push(getValue("Введіть оцінку студента:"));
+      }
+
+      function avgGrade(array) {
+        let sum = 0;
+        for (const value of array) {
+          sum += value;
+        }
+        const avg = sum / array.length;
+        return avg;
+      }
+      function max(array) {
+        return Math.max(...array);
+      }
+
+      function min(array) {
+        return Math.min(...array);
+      }
+
+      function getValue(message) {
+        while (true) {
+          let value = prompt(message);
+          if (
+            !isNaN(value) &&
+            Number.isInteger(Number(value)) &&
+            value >= 0 &&
+            value <= 100
+          ) {
+            return Number(value);
+          } else {
+            alert("Неправильні дані, введіть значення ще раз:");
+          }
+        }
+      }
+
+      alert(
+        `Середній бал: ${avgGrade(arrayGrades)}. Максимальний бал: ${max(
+          arrayGrades
+        )}. Мінімальний бал: ${min(arrayGrades)}.`
+      );
+    </script>
+  </body>
+</html>

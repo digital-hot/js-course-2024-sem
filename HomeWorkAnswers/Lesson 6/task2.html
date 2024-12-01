@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arrayShopList = ["товар1", "товар2"];
+
+      function addItem() {
+        const item = getValue1("Введіть назву товару, який хочете додати:");
+        arrayShopList.push(item);
+        alert(`${item} було додано до списку.`);
+      }
+
+      function removeItem() {
+        const itemName = getValue1(
+          "Введіть назву товару, який хочете видалити:"
+        );
+        const index = arrayShopList.indexOf(itemName);
+        if (index !== -1) {
+          arrayShopList.splice(index, 1);
+          alert(`${itemName} було видалено.`);
+        } else {
+          alert(`${itemName} не знайдено в списку.`);
+        }
+      }
+
+      function list() {
+        if (arrayShopList.length === 0) {
+          alert("Список товарів порожній.");
+        } else {
+          let listOutput = "Список товарів:\n";
+          arrayShopList.forEach((value, index) => {
+            listOutput += `Nº ${index + 1} - ${value}\n`;
+          });
+          alert(listOutput);
+        }
+      }
+
+      while (true) {
+        let userChoice = getValue2(
+          "Напишіть ваш вибір (цифрами):\n1 - Додати товар\n2 - Вилучити товар\n3 - Вивести список товарів\n4 - Завершити роботу"
+        );
+
+        switch (userChoice) {
+          case 1:
+            addItem();
+            break;
+          case 2:
+            removeItem();
+            break;
+          case 3:
+            list();
+            break;
+          case 4:
+            alert("Завершення роботи");
+            break;
+          default:
+            alert("Неправильний вибір, спробуйте ще раз.");
+        }
+
+        if (userChoice === 4) {
+          break;
+        }
+      }
+
+      function getValue1(message) {
+        while (true) {
+          let value = prompt(message);
+          if (value) {
+            return value;
+          }
+        }
+      }
+
+      function getValue2(message) {
+        while (true) {
+          let value = prompt(message);
+          let isValid = !isNaN(value) && value !== "";
+          if (isValid) return Number(value);
+        }
+      }
+    </script>
+  </body>
+</html>
